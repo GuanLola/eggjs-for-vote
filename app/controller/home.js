@@ -2,16 +2,11 @@
 
 const Controller = require('egg').Controller;
 
-const min = 5,
-  max = 10;
-let rand = Math.floor(Math.random() * (max - min + 1) + min);
 
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
     setInterval(async () => {
-      rand = Math.floor(Math.random() * (max - min + 1) + min);
-      console.log('rand', rand);
 
       const data = await ctx.curl(
         'https://www.toutoupiao.com/Ajax/SaveSendVote',
@@ -44,7 +39,7 @@ class HomeController extends Controller {
         }
       );
       console.log('data', data.status, data.data.success);
-    }, rand * 1000);
+    }, 1000);
     ctx.body = 'hi, egg';
   }
 }
