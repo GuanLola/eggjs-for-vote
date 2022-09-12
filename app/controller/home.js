@@ -9,10 +9,6 @@ let rand = Math.floor(Math.random() * (max - min + 1) + min);
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-
-
-    console.log('rand', rand);
-
     setInterval(async () => {
       rand = Math.floor(Math.random() * (max - min + 1) + min);
       console.log('rand', rand);
@@ -49,9 +45,7 @@ class HomeController extends Controller {
       );
       console.log('data', data.status, data.data.success);
     }, rand * 1000);
-
     ctx.body = 'hi, egg';
-
   }
 }
 
